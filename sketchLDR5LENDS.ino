@@ -1,24 +1,30 @@
-int W = -6;
-int B = -5;
+// C++ code
+// codingan arduino ldr 5 leds
+int W = 6;
+int B = 5;
 int G = 4;
-int Y = -3;
+int Y = 3;
 int R = 2;
 int LDR = A0;
 
+
 void setup(){
-	Serial.begin(9600);
+	Serial.begin(1000);
+  	pinMode (A0,INPUT);
 	pinMode (W,OUTPUT);
 	pinMode (B,OUTPUT);
 	pinMode (G,OUTPUT);
 	pinMode (Y,OUTPUT);
 	pinMode (R,OUTPUT);
-	pinMode (A0,INPUT);
+	
 
 }
 void loop(){
 	int LDRStatus = analogRead(LDR);
+	Serial.println ("nilai LDR terbaca :");
+	Serial.println (LDRStatus);
 
-	if(LDRstatus >= 1000){
+	if(LDRStatus >= 900){
 	digitalWrite (W,HIGH);
 	digitalWrite (B,HIGH);
 	digitalWrite (G,HIGH);
@@ -31,7 +37,7 @@ void loop(){
 	Serial.println ("R ON");
 	
 	}
-	else if (LDRStatus >= 900 ) {
+	else if (LDRStatus >= 700 ) {
 	digitalWrite (W,LOW);
 	digitalWrite (B,HIGH);
 	digitalWrite (G,HIGH);
@@ -44,7 +50,7 @@ void loop(){
 	Serial.println ("R ON");
 
 	}
-	else if (LDRStatus >= 700) {
+	else if (LDRStatus >= 500) {
 	digitalWrite (W,LOW);
 	digitalWrite (B,LOW);
 	digitalWrite (G,HIGH);
@@ -56,7 +62,7 @@ void loop(){
 	Serial.println ("Y ON");
 	Serial.println ("R ON");
 	}
-	else if (LDRStatus >= 600) {
+	else if (LDRStatus >= 300) {
 	digitalWrite (W,LOW);
 	digitalWrite (B,LOW);
 	digitalWrite (G,LOW);
